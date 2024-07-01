@@ -819,6 +819,7 @@ class Spider(BaseSpider):  # 元类 默认的元类 type
 
     def hookM3u8(self, url):
         """
+        https://www.52pojie.cn/thread-1932358-1-1.html
         JavaScript:$.ajaxSettings.async = false; var s = ""; let a = $.get(vodh5player.playerList[0].ads.contentSrc); for (var m = 0; m < a.responseText.match(/asp.*?m3u8/g).length; m++) { s = s + "https://hls.cntv.myalicdn.com//asp" + a.responseText.match(/asp.*?m3u8/g)[m].slice(7) + "\n\n" }; var blob = new Blob([s], { type: "text/plain" }); var url = URL.createObjectURL(blob); window.open(url);
         @param url:
         @return:

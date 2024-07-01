@@ -824,9 +824,9 @@ class Spider(BaseSpider):  # 元类 默认的元类 type
         @return:
         """
         url = url or ''
-        hook1 = lambda url: url.replace('asp/', 'asp//', 1)
-        hook2 = lambda url: url.replace('hls/', 'hls//', 1)
-        hook3 = lambda url: url.replace('https://newcntv.qcloudcdn.com', 'https://hls.cntv.myalicdn.com/', 1)
+        hook1 = lambda x: x.replace('asp/', 'asp//', 1)
+        hook2 = lambda x: x.replace('hls/', 'hls//', 1)
+        hook3 = lambda x: x.replace('https://newcntv.qcloudcdn.com', 'https://hls.cntv.myalicdn.com/', 1)
         hooks = [hook1, hook2, hook3]
         hook = random.choice(hooks)
         return hook(url)

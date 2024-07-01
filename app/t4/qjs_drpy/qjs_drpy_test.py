@@ -72,7 +72,7 @@ if __name__ == '__main__':
     # print(drpy.playerContent("优质", "https://yzzy.play-cdn21.com/20240329/13829_b63e7c01/index.m3u8", []))
     # print(drpy.searchContent("斗罗大陆", False, 1))
     # print(drpy.searchContent("玫瑰的故事", False, 1))
-    # print(drpy.searchContent("完美世界", False, 1))
+    # print(drpy.searchContent("鬼吹灯", False, 1))
     # print(drpy.detailContent("https://001.pm/index
     # print(drpy.detailContent("https://001.pm/index.php/vod/detail/id/118802.html"))
     # print(drpy.detailContent("https://www.1080.ee/voddetail/124404.html"))

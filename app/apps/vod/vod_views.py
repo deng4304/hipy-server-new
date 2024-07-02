@@ -26,6 +26,7 @@ from common import deps
 from core.logger import logger
 from core.constants import BASE_DIR
 from utils.path import get_api_path, get_file_text, get_file_modified_time, get_now
+from utils.tools import get_md5
 from dateutil.relativedelta import relativedelta
 from pathlib import Path
 import sys
@@ -117,6 +118,7 @@ def vod_generate(*, api: str = "", request: Request,
         del API_STORE[api]
 
     try:
+        extend_store = get_md5(extend) if extend else extend
         api_path = get_api_path(api)
         api_time = get_file_modified_time(api_path)
         api_store_lists = list(API_STORE.keys())
@@ -144,23 +146,23 @@ def vod_generate(*, api: str = "", request: Request,
 
                 # _api = API_STORE[api] or {'time': None}
                 # 取拓展里的
-                _api = API_STORE[api].get(extend) or {'time': None}
+                _api = API_STORE[api].get(extend_store) or {'time': None}
                 _api_time = _api['time']
                 # 内存储存时间 < 文件修改时间 需要重新初始化
                 if not _api_time or _api_time < api_time or (_api_time + relativedelta(seconds=_seconds) < get_now()):
                     need_init = True
 
         if need_init:
-            logger.info(f'需要初始化源:源路径:{api_path},扩展:{extend},源最后修改时间:{api_time}')
+            logger.info(f'需要初始化源:源路径:{api_path},扩展:{extend_store},源最后修改时间:{api_time}')
             if is_drpy:
                 vod = Drpy(api, t4_js_api, debug)
             else:
                 vod = Vod(api=api, query_params=request.query_params, t4_api=t4_api).module
             # 记录初始化时间|下次文件修改后判断储存的时间 < 文件修改时间又会重新初始化
             # API_STORE[api] = {'vod': vod, 'time': get_now()}
-            API_STORE[api][extend] = {'vod': vod, 'time': get_now()}
+            API_STORE[api][extend_store] = {'vod': vod, 'time': get_now()}
         else:
-            vod = API_STORE[api][extend]['vod']
+            vod = API_STORE[api][extend_store]['vod']
 
     except Exception as e:
         return respErrorJson(error_code.ERROR_INTERNAL.set_msg(f"内部服务器错误:{e}"))

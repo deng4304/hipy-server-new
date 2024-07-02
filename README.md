@@ -30,7 +30,8 @@ bash -c "$(curl -fsSLk https://zy.catni.cn/release/latest/setup.sh)"
 [ws,jinja](https://www.jianshu.com/p/ca9b257a1a44)  
 [cachetools文档](https://cachetools.readthedocs.io/en/stable/#cachetools.Cache)  
 [alembic参考文档](https://zhuanlan.zhihu.com/p/306898869?utm_id=0)
-[playwright参考文档](https://playwright.dev/python/docs/api/class-playwright)
+[playwright参考文档](https://playwright.dev/python/docs/api/class-playwright)  
+[zyplayer参考](https://wwi.lanzoup.com/iPbFb23bpdaf)
 
 
 

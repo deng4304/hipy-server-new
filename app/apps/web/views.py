@@ -153,6 +153,8 @@ async def hipy_configs(*,
 
     sub_info = None
     sub = getParams('sub')
+    # 给默认订阅码，后续自动加入到api接口中。
+    default_sub = sub
     token = request.headers.get("token")
     # t4跳过token检查。如果不传sub且有用户token的话就按全部的数据来展示
     step_token_check = False
@@ -160,20 +162,28 @@ async def hipy_configs(*,
         uid = await r.get(REDIS_KEY_LOGIN_TOKEN_KEY_PREFIX + token)
         if uid:
             step_token_check = True
-    has_sub = False if step_token_check and not sub else curd_vod_subs.isExists(db)
+            # 如果有uid就step_token_check并且查出来一个默认匹配.*的记录的sub订阅码给默认接口
+            if not sub:
+                match_all_subs = curd_vod_subs.search(db, reg='.*', status=1)
+                # print(match_all_subs)
+                if match_all_subs['total'] > 0:
+                    default_sub = match_all_subs['results'][0]['code']
+                    # print(f'default_sub:{default_sub}')
+
+    has_sub = False if step_token_check and not default_sub else curd_vod_subs.isExists(db)
     if has_sub:
-        if not sub or len(sub) < 6:
+        if not default_sub or len(default_sub) < 6:
             return respErrorJson(error_code.ERROR_PARAMETER_ERROR.set_msg(f'参数【sub】不正确'))
-        sub_record = curd_vod_subs.getByCode(db, sub)
+        sub_record = curd_vod_subs.getByCode(db, default_sub)
         if not sub_record:
-            return respErrorJson(error_code.ERROR_PARAMETER_ERROR.set_msg(f'不存在此订阅码:【{sub}】'))
+            return respErrorJson(error_code.ERROR_PARAMETER_ERROR.set_msg(f'不存在此订阅码:【{default_sub}】'))
         if sub_record.status == 0:
-            return respErrorJson(error_code.ERROR_PARAMETER_ERROR.set_msg(f'此订阅码:【{sub}】已禁用'))
+            return respErrorJson(error_code.ERROR_PARAMETER_ERROR.set_msg(f'此订阅码:【{default_sub}】已禁用'))
         if sub_record.due_time:
             current_time = datetime.now()
             if current_time > sub_record.due_time:
                 return respErrorJson(error_code.ERROR_NOT_FOUND.set_msg(
-                    f'此订阅码【{sub}】已过期。到期时间为:{sub_record.due_time},当前时间为:{current_time.strftime("%Y-%m-%d %H:%M:%S")}'))
+                    f'此订阅码【{default_sub}】已过期。到期时间为:{sub_record.due_time},当前时间为:{current_time.strftime("%Y-%m-%d %H:%M:%S")}'))
 
         sub_info = sub_record.dict()
     print('sub_info:', sub_info)
@@ -376,6 +386,14 @@ async def hipy_configs(*,
                 elif sub_info.get('mode') == 1:
                     render_dict['sites'] = [site for site in render_dict['sites'] if
                                             not re.search(sub_info.get('reg') or '.*', site['name'], re.I)]
+                # 增加t4订阅防盗
+                if mode == 0:
+                    for site in render_dict['sites']:
+                        if site.get('type') and site['type'] == 4 and site.get('api'):
+                            if '?' in site['api']:
+                                site['api'] += f'&sub={default_sub}'
+                            else:
+                                site['api'] += f'?sub={default_sub}'
 
             render_dict['cost_time'] = get_interval(t1)
             return respVodJson(render_dict)

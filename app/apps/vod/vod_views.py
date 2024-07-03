@@ -8,6 +8,7 @@ import base64
 import json
 import ujson
 import os
+import re
 
 from fastapi import APIRouter, Request, Depends, Response, Query, File, UploadFile
 from fastapi.responses import RedirectResponse
@@ -21,6 +22,7 @@ from urllib.parse import quote, unquote
 import requests
 from apps.permission.models.user import Users
 from apps.vod.curd.curd_configs import curd_vod_configs
+from apps.vod.curd.curd_subs import curd_vod_subs
 
 from common import deps
 from core.logger import logger
@@ -28,6 +30,7 @@ from core.constants import BASE_DIR
 from utils.path import get_api_path, get_file_text, get_file_modified_time, get_now
 from utils.tools import get_md5
 from dateutil.relativedelta import relativedelta
+from datetime import datetime
 from pathlib import Path
 import sys
 from t4.qjs_drpy.qjs_drpy import Drpy
@@ -63,6 +66,34 @@ def vod_generate(*, api: str = "", request: Request,
 
     def getParams(key=None, value=''):
         return request.query_params.get(key) or value
+
+    # 订阅检测
+    sub_info = None
+    sub = getParams('sub')
+    has_sub = curd_vod_subs.isExists(db)
+    if has_sub:
+        if not sub or len(sub) < 6:
+            return respErrorJson(error_code.ERROR_PARAMETER_ERROR.set_msg(f'参数【sub】不正确'))
+        sub_record = curd_vod_subs.getByCode(db, sub)
+        if not sub_record:
+            return respErrorJson(error_code.ERROR_PARAMETER_ERROR.set_msg(f'不存在此订阅码:【{sub}】'))
+        if sub_record.status == 0:
+            return respErrorJson(error_code.ERROR_PARAMETER_ERROR.set_msg(f'此订阅码:【{sub}】已禁用'))
+        if sub_record.due_time:
+            current_time = datetime.now()
+            if current_time > sub_record.due_time:
+                return respErrorJson(error_code.ERROR_NOT_FOUND.set_msg(
+                    f'此订阅码【{sub}】已过期。到期时间为:{sub_record.due_time},当前时间为:{current_time.strftime("%Y-%m-%d %H:%M:%S")}'))
+
+        sub_info = sub_record.dict()
+    # print('sub_info:', sub_info)
+    # 暂不支持使用正则过滤接口的方式限制某个api不允许访问
+    has_access = True
+    if sub_info.get('mode') == 0:
+        has_access = True if re.search(sub_info.get('reg') or '.*', api, re.I) else False
+    elif sub_info.get('mode') == 1:
+        has_access = True if not re.search(sub_info.get('reg') or '.*', api, re.I) else False
+    # print(f'has_access:{has_access}')
 
     # 拿到query参数的字典
     params_dict = request.query_params.__dict__['_dict']

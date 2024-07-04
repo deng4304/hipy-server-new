@@ -6,8 +6,8 @@
         "cate_exclude": ""
     },
     {
-        "name": "樱花资源网",
-        "url": "http://m3u8.apiyhzy.com",
+        "name": "樱花|点播",
+        "url": "https://m3u8.apiyhzy.com",
         "parse_url": "",
         "cate_exclude": ""
     },
@@ -18,34 +18,32 @@
         "cate_exclude": ""
     },
     {
-        "name": "閃電資源",
-        "url": "http://sdzyapi.com",
-        "parse_url": "",
-        "cate_exclude": "",
-        "api": "/api.php/provide/vod/from/sdm3u8/"
-    },
-    {
-        "name": "探探资源",
-        "url": "http://apittzy.com",
+        "name": "闪电☆资源",
+        "url": "https://sdzyapi.com",
         "parse_url": "",
         "cate_exclude": ""
     },
     {
-        "name": "光速资源",
-        "url": "http://api.guangsuapi.com",
+        "name": "🈵成人影视4",
+        "url": "https://apittzy.com",
         "parse_url": "",
-        "cate_exclude": "",
-        "api": "/api.php/provide/vod/from/gsm3u8/"
+        "cate_exclude": ""
     },
     {
-        "name": "卧龙资源",
-        "url": "http://collect.wolongzyw.com",
+        "name": "📛挺好┃光速.云播",
+        "url": "https://api.guangsuapi.com",
+        "parse_url": "",
+        "cate_exclude": ""
+    },
+    {
+        "name": "📛挺好┃卧龙.云播",
+        "url": "https://collect.wolongzyw.com",
         "parse_url": "",
         "cate_exclude": ""
     },
     {
         "name": "U酷资源",
-        "url": "http://api.ukuapi.com",
+        "url": "https://api.ukuapi.com",
         "parse_url": "",
         "cate_exclude": ""
     },
@@ -57,28 +55,28 @@
         "api": "/api.php/provide/vod/from/hnm3u8/"
     },
     {
-        "name": "天空資源",
-        "url": "http://m3u8.tiankongapi.com",
+        "name": "天空资源",
+        "url": "https://m3u8.tiankongapi.com",
         "parse_url": "",
         "cate_exclude": "",
         "api": "/api.php/provide/vod/from/tkm3u8/"
     },
     {
-        "name": "老鸭资源采集",
-        "url": "http://api.apilyzy.com",
+        "name": "老鸭资源|AV",
+        "url": "https://api.apilyzy.com",
         "parse_url": "",
         "cate_exclude": ""
     },
     {
         "name": "金鹰资源",
-        "url": "http://jyzyapi.com",
+        "url": "https://jyzyapi.com",
         "parse_url": "",
         "cate_exclude": "",
-        "api": "/provide/vod/from/jinyingm3u8/"
+        "api": "/provide/vod/"
     },
     {
-        "name": "百度资源",
-        "url": "http://api.apibdzy.com",
+        "name": "百度|点播",
+        "url": "https://api.apibdzy.com",
         "parse_url": "",
         "cate_exclude": ""
     },
@@ -89,27 +87,20 @@
         "cate_exclude": ""
     },
     {
-        "name": "森林资源",
-        "url": "http://slapibf.com",
+        "name": "森林资源|AV",
+        "url": "https://slapibf.com",
         "parse_url": "",
         "cate_exclude": ""
     },
     {
-        "name": "奥斯卡资源网",
-        "url": "http://aosikazy.com",
+        "name": "奥斯卡资源",
+        "url": "https://aosikazy.com",
         "parse_url": "",
         "cate_exclude": ""
     },
     {
         "name": "快车资源",
-        "url": "http://caiji.kczyapi.com",
-        "parse_url": "",
-        "cate_exclude": "",
-        "api": "/api.php/provide/vod/from/kcm3u8/"
-    },
-    {
-        "name": "老鸭资源|AV",
-        "url": "https://api.apilyzy.com",
+        "url": "https://caiji.kczyapi.com",
         "parse_url": "",
         "cate_exclude": ""
     },
@@ -170,33 +161,8 @@
         "cate_exclude": ""
     },
     {
-        "name": "成人06",
-        "url": "http://apilj.com",
-        "parse_url": "",
-        "cate_exclude": "",
-        "api": "/api.php/provide/vod/at/json/"
-    },
-    {
-        "name": "📛挺好┃光速.云播",
-        "url": "https://api.guangsuapi.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
         "name": "速博资源",
         "url": "https://subocaiji.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
-        "name": "量子|点播",
-        "url": "https://cj.lziapi.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
-        "name": "U酷资源",
-        "url": "https://api.ukuapi.com",
         "parse_url": "",
         "cate_exclude": ""
     },
@@ -207,14 +173,8 @@
         "cate_exclude": ""
     },
     {
-        "name": "📛挺好┃卧龙.云播",
-        "url": "https://collect.wolongzyw.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
-        "name": "新浪|点播",
-        "url": "https://api.xinlangapi.com",
+        "name": "📛挺好┃新浪.云播",
+        "url": "http://api.xinlangapi.com",
         "parse_url": "",
         "cate_exclude": "",
         "api": "/xinlangapi.php/provide/vod/"
@@ -226,30 +186,16 @@
         "cate_exclude": ""
     },
     {
-        "name": "快车资源",
-        "url": "https://caiji.kczyapi.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
         "name": "索尼|点播",
         "url": "https://suoniapi.com",
         "parse_url": "",
         "cate_exclude": ""
     },
     {
-        "name": "天空",
-        "url": "http://api.tiankongapi.com",
+        "name": "📛挺好┃天空.云播",
+        "url": "https://api.tiankongapi.com",
         "parse_url": "",
-        "cate_exclude": "",
-        "api": "/api.php/provide/vod/at/json/"
-    },
-    {
-        "name": "金鹰资源",
-        "url": "https://jyzyapi.com",
-        "parse_url": "",
-        "cate_exclude": "",
-        "api": "/provide/vod/"
+        "cate_exclude": ""
     },
     {
         "name": "快看资源",
@@ -259,8 +205,8 @@
         "api": "/api.php/provide/vod/from/kuaikanyun/"
     },
     {
-        "name": "91麻豆|AV",
-        "url": "https://91md.me",
+        "name": "成人18+",
+        "url": "http://91md.me",
         "parse_url": "",
         "cate_exclude": ""
     },
@@ -354,23 +300,11 @@
         "api": "/api/json.php/"
     },
     {
-        "name": "奥斯卡资源",
-        "url": "https://aosikazy.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
         "name": "八戒资源",
         "url": "http://cj.bajiecaiji.com",
         "parse_url": "",
         "cate_exclude": "",
         "api": "/inc/apijson_vod.php/"
-    },
-    {
-        "name": "百度|点播",
-        "url": "https://api.apibdzy.com",
-        "parse_url": "",
-        "cate_exclude": ""
     },
     {
         "name": "KK写真资源|AV",
@@ -423,18 +357,6 @@
         "api": "/api.php/provide/vod/at/json/"
     },
     {
-        "name": "📛挺好┃天空.云播",
-        "url": "https://api.tiankongapi.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
-        "name": "樱花|点播",
-        "url": "https://m3u8.apiyhzy.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
         "name": "鲨鱼资源|AV",
         "url": "https://shayuapi.com",
         "parse_url": "",
@@ -447,34 +369,8 @@
         "cate_exclude": ""
     },
     {
-        "name": "🈵成人影视4",
-        "url": "https://apittzy.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
         "name": "奶香香|AV",
         "url": "https://Naixxzy.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
-        "name": "📛挺好┃新浪.云播",
-        "url": "http://api.xinlangapi.com",
-        "parse_url": "",
-        "cate_exclude": "",
-        "api": "/xinlangapi.php/provide/vod/"
-    },
-    {
-        "name": "天空资源",
-        "url": "https://m3u8.tiankongapi.com",
-        "parse_url": "",
-        "cate_exclude": "",
-        "api": "/api.php/provide/vod/from/tkm3u8/"
-    },
-    {
-        "name": "闪电☆资源",
-        "url": "https://sdzyapi.com",
         "parse_url": "",
         "cate_exclude": ""
     },
@@ -608,12 +504,6 @@
         "cate_exclude": ""
     },
     {
-        "name": "成人18+",
-        "url": "http://91md.me",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
         "name": "️🔘米色",
         "url": "https://www.msnii.com",
         "parse_url": "",
@@ -623,12 +513,6 @@
     {
         "name": "色南国资源",
         "url": "https://api.sexnguon.com",
-        "parse_url": "",
-        "cate_exclude": ""
-    },
-    {
-        "name": "森林资源|AV",
-        "url": "https://slapibf.com",
         "parse_url": "",
         "cate_exclude": ""
     },

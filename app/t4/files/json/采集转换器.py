@@ -20,6 +20,16 @@ def get_host(url):
     return f'{ret.scheme}://{ret.netloc}'
 
 
+def get_sid(url):
+    """
+    获取id主页
+    @param url:
+    @return:
+    """
+    ret = urlsplit(url)
+    return ret.netloc
+
+
 def get_api(url):
     """
     获取接口api
@@ -38,6 +48,9 @@ def delete_same(data, key='url'):
     @return:
     """
     unique_data = list(OrderedDict((d[key], d) for d in data).values())
+    if key == 'sid':
+        for site in unique_data:
+            del site['sid']
     return unique_data
 
 
@@ -53,7 +66,9 @@ def main(zy_url="https://cdn.jsdelivr.net/gh/waifu-project/v1@latest/zy.json"):
             surl = site['api']
             host = get_host(surl)
             api = get_api(surl)
+            sid = get_sid(surl)
             cvalue = {
+                "sid": sid,
                 "name": site["name"],
                 "url": host,
                 "parse_url": "",
@@ -63,7 +78,7 @@ def main(zy_url="https://cdn.jsdelivr.net/gh/waifu-project/v1@latest/zy.json"):
                 cvalue["api"] = api
             covert_sites.append(cvalue)
     print(f'转换完成采集之王的站点:{len(covert_sites)}条记录')
-    covert_sites = delete_same(covert_sites, 'url')
+    covert_sites = delete_same(covert_sites, 'sid')
     print(f'去重后的采集之王的站点:{len(covert_sites)}条记录')
     with open('采集[zy].json', mode='w+', encoding='utf-8') as f:
         f.write(json.dumps(covert_sites, ensure_ascii=False, indent=4))

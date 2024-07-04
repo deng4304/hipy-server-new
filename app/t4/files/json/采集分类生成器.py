@@ -121,6 +121,7 @@ def main(fname='采集'):
                 record.update(has_name[-1])
                 new_records.append(record)
     pprint(new_records)
+    print(f'转换静态数据成功记录数:{len(new_records)}')
     with open(out_file_path, mode='w+', encoding='utf-8') as f:
         f.write(json.dumps(new_records, ensure_ascii=False, indent=2))
 

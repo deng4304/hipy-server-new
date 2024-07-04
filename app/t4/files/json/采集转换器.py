@@ -7,6 +7,7 @@
 import json
 import requests
 from urllib.parse import urlsplit
+from collections import OrderedDict
 
 
 def get_host(url):
@@ -27,6 +28,17 @@ def get_api(url):
     """
     ret = urlsplit(url)
     return ret.path.rstrip('/') + '/'
+
+
+def delete_same(data, key='url'):
+    """
+    字典列表去重，按字典的某个key
+    @param data:
+    @param key:
+    @return:
+    """
+    unique_data = list(OrderedDict((d[key], d) for d in data).values())
+    return unique_data
 
 
 def main(zy_url="https://cdn.jsdelivr.net/gh/waifu-project/v1@latest/zy.json"):
@@ -51,6 +63,8 @@ def main(zy_url="https://cdn.jsdelivr.net/gh/waifu-project/v1@latest/zy.json"):
                 cvalue["api"] = api
             covert_sites.append(cvalue)
     print(f'转换完成采集之王的站点:{len(covert_sites)}条记录')
+    covert_sites = delete_same(covert_sites, 'url')
+    print(f'去重后的采集之王的站点:{len(covert_sites)}条记录')
     with open('采集[zy].json', mode='w+', encoding='utf-8') as f:
         f.write(json.dumps(covert_sites, ensure_ascii=False, indent=4))
 

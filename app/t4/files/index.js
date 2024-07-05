@@ -160,9 +160,9 @@ async function main() {
             extras = ['?type=url&params=../json/小学教育.json'];
         } else if (rname.includes('采集之王')) {
             extras = [
-                '?type=url&params=../json/采集静态.json#1',
-                '?type=url&params=../json/采集[密]静态.json#1',
-                '?type=url&params=../json/采集[zy]静态.json#1',
+                '?type=url&params=../json/采集静态.json$1@采王道长[合]',
+                '?type=url&params=../json/采集[zy]静态.json$1@采王zy[密]',
+                '?type=url&params=../json/采集[密]静态.json@采王成人[密]',
             ];
         } else if (rname.includes('直播转点播')) {
             extras = [
@@ -175,15 +175,18 @@ async function main() {
         if (!excludes.includes(rname)) {
             extras.forEach((extra, index) => {
                 let ext_str = 'drpy_t3';
+                let _name = extras.length > 1 ? `${rname}${index}` : `${rname}`;
+                let ext_name = extra.includes('@') ? extra.split('@')[1]:_name;
                 if (extra) {
                     try {
                         ext_str = extra.split('/').slice(-1)[0].split('.')[0];
                     } catch (e) {
                     }
                 }
+                ext_name = ext_name || `${rname}(${ext_str})`;
                 let data = {
                     'key': extras.length > 1 ? `hipy_js_${rname}${index}` : `hipy_js_${rname}`,
-                    'name': extras.length > 1 ? `${rname}(${ext_str})` : `${rname}(drpy_t3)`,
+                    'name': `${ext_name}(drpy_t3)`,
                     'type': 3,
                     'api': js_api,
                     'searchable': 1,

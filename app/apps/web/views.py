@@ -209,6 +209,8 @@ async def hipy_configs(*,
     # print(hipy_rules.get('results')[0])
     hipy_rules = [{
         'name': rec['name'],
+        # 增加ext_name属性用于模板渲染key和name
+        'ext_name': rec['name'],
         'file_type': rec['file_type'],
         'ext': rec['ext'] or '',
         'searchable': rec['searchable'],
@@ -217,8 +219,11 @@ async def hipy_configs(*,
         'order_num': rec['order_num'],
     } for rec in hipy_rules.get('results') or [] if rec['active'] and rec['is_exist']]
 
-    drpy_rules = [{
+    # 定义个基础版的
+    base_drpy_rules = [{
         'name': rec['name'],
+        # 增加ext_name属性用于模板渲染key和name
+        'ext_name': rec['name'],
         'file_type': rec['file_type'],
         'ext': rec['ext'] or '',
         'searchable': rec['searchable'],
@@ -226,6 +231,29 @@ async def hipy_configs(*,
         'filterable': rec['filterable'],
         'order_num': rec['order_num'],
     } for rec in drpy_rules.get('results') or [] if rec['active'] and rec['is_exist']]
+
+    drpy_rules = []
+    for base_rule in base_drpy_rules:
+        # 多个传参
+        if base_rule['ext'] and len(base_rule['ext'].split('\n')) > 1:
+            i = 1
+            for rule_ext in base_rule['ext'].split('\n'):
+                ext_rule = base_rule.copy()
+                ext_param = rule_ext
+                ext_str = ext_param
+                ext_name = ext_rule['ext_name'] + str(i)
+                if '@' in ext_param:
+                    ext_str = ext_param.split('@')[0]
+                    ext_name = ext_param.split('@')[1] or ext_name
+
+                ext_rule['ext'] = ext_str
+                ext_rule['ext_name'] = ext_name
+
+                drpy_rules.append(ext_rule)
+
+                i += 1
+        else:
+            drpy_rules.append(base_rule)
 
     # print(hipy_rules)
     # print(drpy_rules)

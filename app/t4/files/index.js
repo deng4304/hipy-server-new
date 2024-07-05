@@ -160,10 +160,11 @@ async function main() {
             extras = ['?type=url&params=../json/小学教育.json'];
         } else if (rname.includes('采集之王')) {
             extras = [
-                '?type=url&params=../json/采集静态.json',
-                '?type=url&params=../json/采集[密]静态.json',
+                '?type=url&params=../json/采集静态.json#1',
+                '?type=url&params=../json/采集[密]静态.json#1',
+                '?type=url&params=../json/采集[zy]静态.json#1',
             ];
-        }else if (rname.includes('直播转点播')) {
+        } else if (rname.includes('直播转点播')) {
             extras = [
                 '?type=url&params=../json/live2cms.json',
             ];

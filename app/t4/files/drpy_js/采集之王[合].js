@@ -271,6 +271,7 @@ var rule = {
                 log('start:' + start);
                 log('end:' + end);
                 log('搜索模式:' + searchMode);
+                log('精准搜索:' + rule.search_match);
                 // log('t1:' + t1);
                 if (start < canSearch.length) {
                     let search_classes = canSearch.slice(start, end);

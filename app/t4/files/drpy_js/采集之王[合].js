@@ -90,6 +90,7 @@ var rule = {
             log('当前程序支持批量请求[batchFetch],搜索限制已设置为16');
         }
         let _url = rule.params;
+        log(`传入参数:${_url}`);
         if (_url && typeof (_url) === 'string' && /^(http|file)/.test(_url)) {
             if (_url.includes('#')) {
                 let _url_params = _url.split('#');

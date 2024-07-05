@@ -1,8 +1,11 @@
 /**
  * 强烈推荐静态分类。可以加快速度!!!
+ * 不建议:
  * 传参 ?type=url&params=../json/采集.json
+ * 建议：
  * 传参 ?type=url&params=../json/采集静态.json#1
  * 传参 ?type=url&params=../json/采集[zy]静态.json#1
+ * 传参 ?type=url&params=../json/采集[密]静态.json#1
  * [{"name":"暴风资源","url":"https://bfzyapi.com","parse_url":""},{"name":"飞刀资源","url":"http://www.feidaozy.com","parse_url":""},{"name":"黑木耳资源","url":"https://www.heimuer.tv","parse_url":""}]
  */
 globalThis.getRandomItem = function (items) {//从列表随机取出一个元素

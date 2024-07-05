@@ -8,8 +8,8 @@
  * 传参 ?type=url&params=../json/采集[密]静态.json#1
  * hipy-server支持@改名比如:
  * 传参 ?type=url&params=../json/采集静态.json#1@采王道长
- * 传参 ?type=url&params=../json/采集[zy]静态.json#1采王zy[密]
- * 传参 ?type=url&params=../json/采集[密]静态.json#1采王成人[密]
+ * 传参 ?type=url&params=../json/采集[zy]静态.json#1@采王zy[密]
+ * 传参 ?type=url&params=../json/采集[密]静态.json#1@采王成人[密]
  * [{"name":"暴风资源","url":"https://bfzyapi.com","parse_url":""},{"name":"飞刀资源","url":"http://www.feidaozy.com","parse_url":""},{"name":"黑木耳资源","url":"https://www.heimuer.tv","parse_url":""}]
  */
 globalThis.getRandomItem = function (items) {//从列表随机取出一个元素

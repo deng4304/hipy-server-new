@@ -18,7 +18,7 @@ globalThis.getRandomItem = function (items) {//从列表随机取出一个元素
 var rule = {
     title: '采集之王[合]',
     author: '道长',
-    version: '20240705 beta15',
+    version: '20240705 beta16',
     update_info: `
 20240705:
 1.支持传参json后面增加$1 这样的额外标识，用于搜索结果精准匹配

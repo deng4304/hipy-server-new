@@ -18,7 +18,7 @@ globalThis.getRandomItem = function (items) {//从列表随机取出一个元素
 var rule = {
     title: '采集之王[合]',
     author: '道长',
-    version: '20240705 beta16',
+    version: '20240706 beta17',
     update_info: `
 20240706:
 1.静态json数据支持cate_excludes分类名称列表过滤无数据分类

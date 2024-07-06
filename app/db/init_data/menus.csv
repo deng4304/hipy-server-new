@@ -42,3 +42,4 @@ id,created_time,creator_id,modified_time,modifier_id,is_deleted,path,component,i
 37,2024-01-21 08:39:35.602841,1,2024-06-19 09:52:59.288370,1,0,rules_edit/:id(\d+),/vod/rules/edit,False,True,0,4,VodRulesEdit,在线编辑源,code,True,34
 38,2024-02-19 13:58:41.826335,1,2024-06-19 09:53:08.519928,1,0,houses,/vod/houses/index,False,False,0,5,VodHouses,源仓库,shopping,True,34
 39,2024-02-21 17:21:06.123879,1,2024-06-19 09:53:12.201774,1,0,web,/vod/web/index,False,False,0,6,VodWeb,在线预览,international,True,34
+45,2024-07-06 00:16:58.373800,1,2024-07-06 00:16:58.373800,0,0,liveTool,/tool/liveTool/index,False,False,0,10,liveTool,直播工具,form,True,34

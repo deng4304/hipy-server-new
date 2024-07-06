@@ -177,6 +177,7 @@ async function main() {
                 let ext_str = 'drpy_t3';
                 let _name = extras.length > 1 ? `${rname}${index}` : `${rname}`;
                 let ext_name = extra.includes('@') ? extra.split('@')[1]:_name;
+                extra = extra.split('@')[0];
                 if (extra) {
                     try {
                         ext_str = extra.split('/').slice(-1)[0].split('.')[0];

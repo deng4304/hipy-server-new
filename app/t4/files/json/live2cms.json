@@ -12,12 +12,17 @@
   {
     "name": "CNTV",
     "url": "./live_cntv.txt",
-    "img": ""
+    "img": "./lives.jpg"
   },
-  {
+   {
     "name": "范冰冰-V6",
     "url": "https://live.fanmingming.com/tv/m3u/ipv6.m3u",
-    "img": "https://bkimg.cdn.bcebos.com/pic/a044ad345982b2b7d0a2e28059e3dcef76094b362d6a"
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "范明明-V6",
+    "url": "https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tvboxtg/main/饭太硬/lives/IPV6.txt",
+    "img": "./lives.jpg"
   },
   {
     "name": "1905",
@@ -25,13 +30,23 @@
     "img": "https://image11.m1905.cn/uploadfile/2022/0510/thumb_1_285_100_20220510030520666149.jpg"
   },
   {
-    "name": "测试1(随时失效)",
-    "url": "https://gitee.com/svcd2008/tv/raw/master/430.txt",
+    "name": "南风",
+    "url": "https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tvboxtg/main/南风/lives/live.txt",
     "img": "./lives.jpg"
   },
   {
-    "name": "测试2(随时失效)",
-    "url": "https://gitee.com/flying-snow-wu/tv/raw/main/itvlist.txt",
-    "img": ""
+    "name": "综合4",
+    "url": "https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tvboxtg/main/王二小/lives/综合4.txt",
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "肥猫",
+    "url": "https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tvboxtg/main/肥猫/lives/live.txt",
+    "img": "./lives.jpg"
+  },
+  {
+    "name": "开心频道",
+    "url": "https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tvboxtg/main/天天开心/lives/开心频道.txt",
+    "img": "./lives.jpg"
   }
 ]
